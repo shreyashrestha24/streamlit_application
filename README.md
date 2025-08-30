@@ -1,2 +1,4 @@
-# streamlit_application
-Streamlit application for analysising E. coli WCM data
+#streamlit_application
+Streamlit application for analysing E. coli WCM data
+
+
