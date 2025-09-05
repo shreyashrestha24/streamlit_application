@@ -139,10 +139,9 @@ if 'df_variant' in st.session_state and 'config_variant' in st.session_state:
 
             st.subheader("Bar Plots")
 
-            # Convert repeat to string/categorical for proper grouping
+            # Converting repeat to string for proper grouping
             if 'repeat' in display_df_app.columns:
                 display_df_app['repeat'] = display_df_app['repeat'].astype(str)
-
 
             # Metrics to plot
             plot_options = [col for col in display_df_app.columns if col not in ['strain_id', 'repeat']]
@@ -184,4 +183,5 @@ if 'df_variant' in st.session_state and 'config_variant' in st.session_state:
                     metric=selected_compound,
                     average_repeats=average_repeats
                 )
+
 
