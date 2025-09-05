@@ -1,0 +1,14 @@
+#columns to keep during variant analysis
+columns_of_interest: ['simulation_id', 'time', 'countsToMolar', 'generation', 'gene_expression_factor', 'translation_efficiency', 'growth', 'ATP[c]', 'IND[c]', 'GLN[c]', 'NG-BpsA-MONOMER[c]', 'charging_ratio']
+
+#columns to keep during WT analysis
+wildtype_columns_of_interest: ['simulation_identifier', 'time', 'countsToMolar', 'generation', 'growth', 'ATP[c]', 'charging_ratio', 'GLN[c]']
+
+#columns to melt
+non_metabolites: ['growth', 'cellMass', 'rnaMass', 'proteinMass', 'charging_ratio']
+
+metabolites: ['GLN[c]', 'IND[c]', 'NG-BpsA-MONOMER[c]', 'GLNS-MONOMER[c]','ATP[c]']
+
+
+
+
