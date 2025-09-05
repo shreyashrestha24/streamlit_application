@@ -75,7 +75,7 @@ if 'df_baseline' in st.session_state and 'config_baseline' in st.session_state:
 
 
     with tabs[0]:
-        st.subheader("Lineage Survival of Baseline Data")
+        st.subheader("Lineage Strain Survival of Baseline Data")
         # max generation summary
         max_gens = long_df.groupby('simulation_identifier')['generation'].max().reset_index()
         max_gens.rename(columns={'simulation_identifier': 'Simulation ID', 'generation': 'Max Generation'}, inplace=True)
@@ -136,24 +136,7 @@ if 'df_baseline' in st.session_state and 'config_baseline' in st.session_state:
                 st.metric(f"Overall Max {compound} Concentration",
                           f"{overall_stats['overall_max_concentration']:.4f} mM")
 
-            # JSON export for selected stats
-            export_stats = {}
-            if "Mean" in metric_choices:
-                export_stats["overall_mean_concentration"] = round(overall_stats['overall_mean_concentration'], 4)
-            if "Min" in metric_choices:
-                export_stats["overall_min_concentration"] = round(overall_stats['overall_min_concentration'], 4)
-            if "Max" in metric_choices:
-                export_stats["overall_max_concentration"] = round(overall_stats['overall_max_concentration'], 4)
-
-            json_data = json.dumps(export_stats, indent=2)
-
-            st.download_button(
-                label=f"Download {compound} Concentration Summary (JSON)",
-                data=json_data,
-                file_name=f"{compound}_concentration_summary.json",
-                mime='application/json'
-            )
-
+          
             # per simulation checkbox
             show_table = st.checkbox(f"Show Per-Simulation Concentration Table for {compound}")
             if show_table:
@@ -215,3 +198,4 @@ if 'df_baseline' in st.session_state and 'config_baseline' in st.session_state:
 else:
     st.warning("Please upload both a data file and a config file to proceed.")
     st.stop()
+
